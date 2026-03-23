@@ -1,0 +1,76 @@
+1. 
+touch .gitignore
+Explanation: Creates a new `.gitignore` file.
+
+2. 
+echo "log file" >debug.log
+Explanation: Creates a log file.
+
+3.
+echo "temp file" >data.tmp
+Explanation: Creates a `.tmp` file.
+
+4.
+echo "secret data"> secret.txt
+Explanation: Creates a text file.
+
+5.
+mkdir temp
+Explanation: Creates a new folder named `temp`.
+
+6.
+echo "temp folder file" > temp/file.txt
+Explanation: Creates a text file inside `temp`.
+
+7.
+echo "important data">important.txt
+Explanation: Creates an important file in the current folder.
+
+8.
+git status
+
+Output:
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        data.tmp
+        debug.log
+        important.txt
+        secret.txt
+        temp/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Explanation:
+Checked the status. Here, we can see the `temp` folder and many other files are being tracked, which
+should not be.
+So, I added rules to the `.gitignore` file:
+# Ignore log files
+*.log
+
+# Ignore temp files
+*.tmp
+
+# Ignore a specific file
+secret.txt
+
+# Ignore a directory
+temp/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+9.
+git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .gitignore
+        important.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+Explanation:
+Checked the status. Here, we can see that only the important files are tracked.

@@ -1,0 +1,156 @@
+1.
+echo "hello, writing a file for conflict" > conflict.txt
+Explanation: Creates a file named `conflict.txt`.
+
+2.
+git add .
+Explanation: The file is ready to commit.
+
+3.
+git commit -m "commit for conflict demo"
+Output:
+[main 23c08d7] commit for conflict demo
+ 2 files changed, 34 insertions(+)
+ create mode 100644 conflict.txt
+ create mode 100644 df
+Explanation: The file is committed in the main branch.
+
+4.
+git branch branch1
+Explanation: Creates a new branch named `branch1`.
+
+5.
+git checkout branch1
+Output:
+Switched to branch 'branch1'
+
+6.
+echo "Hello from branch 1" > conflict.txt
+Explanation: Adds some text from `branch1`.
+
+7.
+git add .
+Explanation: The file is staged and ready to commit.
+
+8.
+git commit -m "branch1 change"
+Output:
+[branch1 0c0f859] branch1 change
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: The file is committed from `branch1`.
+
+9.
+git checkout main
+Output:
+Switched to branch 'main'
+
+10.
+git branch branch2
+Explanation: Creates a new branch named `branch2`.
+
+11.
+git checkout branch2
+Output:
+Switched to branch 'branch2'
+
+13.
+echo "Hello from branch 2" > conflict.txt
+Explanation: Modifies `conflict.txt` from `branch2`.
+
+14.
+git add .
+
+15.
+git commit -m "branch2 change"
+Output:
+[branch2 3fd2bd8] branch2 change
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: The file is committed from `branch2`.
+
+16.
+git checkout main
+Output:
+Switched to branch 'main'
+
+17.
+git merge branch1
+Output:
+Updating 23c08d7..0c0f859
+Fast-forward
+ conflict.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: `branch1` is merged into the main branch.
+
+18.
+git merge branch2
+Output:
+Auto-merging conflict.txt
+CONFLICT (content): Merge conflict in conflict.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+Explanation:
+A conflict occurs.
+
+19.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git_version_control (main|MERGING)
+$ git status
+Output:
+On branch main
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   conflict.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explanation: We can see the conflict.
+
+
+20.
+git diff
+
+Output:
+diff --cc conflict.txt
+index 5722e1d,527a9fc..0000000
+--- a/conflict.txt
++++ b/conflict.txt
+@@@ -1,1 -1,1 +1,5 @@@
+++<<<<<<< HEAD
+ +Hello from branch 1
+++=======
++ Hello from branch 2
+++>>>>>>> branch2
+
+Explanation: It shows the differences between the versions from `branch1` and `branch2`.
+The conflict was resolved manually.
+
+21.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git_version_control (main|MERGING)
+$ git add conflict.txt
+
+22.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git_version_control (main|MERGING)
+$ git commit -m "resolved merge conflict between branch1 and branch2"
+Output:
+[main 2f78a7d] resolved merge conflict between branch1 and branch2
+Explanation: The merge is completed and the conflict is resolved.
+
+23:
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git_version_control (main)
+$ git log --oneline --graph
+*   2f78a7d (HEAD -> main) resolved merge conflict between branch1 and branch2
+|\
+| * 3fd2bd8 (branch2) branch2 change
+* | 0c0f859 (branch1) branch1 change
+|/
+* 23c08d7 commit for conflict demo
+* 420da1e Revert "bugged commit"
+* b1fa144 bugged commit
+* ccd0c09 Added gitignore file
+* 2dfbdb7 (feature-branch) Added new feature in feature-branch
+* 4c8614e Initial commit with two files
+
+Explanation: Shows the commit history.

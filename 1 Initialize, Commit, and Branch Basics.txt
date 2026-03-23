@@ -1,0 +1,85 @@
+1. mkdir git_version_control
+Explanation: Creates a new directory named 'git_version_control'.
+
+2. cd git_version_control
+Explanation: Navigates into the newly created directory.
+
+3. git init
+Explanation: Initializes a new Git repository.
+Output: Initialized empty Git repository in the specified folder.
+
+4. echo "Hello, I am Vaibhav" > file1.txt
+Explanation: Creates file1.txt and writes text into it.
+
+5. echo "I am intern at Presidio" > file2.txt
+Explanation: Creates file2.txt and writes text into it.
+
+6. git status
+Explanation: Checks the status of the repository.
+Output:
+- No commits yet
+- file1.txt and file2.txt are untracked files
+
+7. git add .
+Explanation: Adds all files to the staging area.
+Output:
+- Warning about LF to CRLF conversion (line ending normalization in Windows)
+
+8. git commit -m "Initial commit with two files"
+Explanation: Commits staged files with a message.
+Output:
+- 2 files changed
+- file1.txt and file2.txt created
+
+9. git branch
+Explanation: Lists all branches.
+Output:
+- main
+
+10. git checkout -b feature-branch
+Explanation: Creates and switches to a new branch named 'feature-branch'.
+
+11. git branch
+Explanation: Lists all branches.
+Output:
+- feature-branch (current branch)
+- main
+
+12. echo "file1 modified by Vaibhav, new feature added" >> file1.txt
+Explanation: Appends new content to file1.txt.
+
+13. git add .
+Explanation: Stages the modified file.
+
+14. git commit -m "Added new feature in feature-branch"
+Explanation: Commits the changes made in the feature branch.
+Output:
+- 1 file changed
+- 1 insertion
+
+15. git checkout main
+Explanation: Switches back to the main branch.
+
+16. git status
+Explanation: Checks the status of the main branch.
+Output:
+- Working tree clean
+
+17. git merge feature-branch
+Explanation: Merges feature-branch into main.
+Output:
+- Fast-forward merge
+- file1.txt updated
+
+18. git log
+Explanation: Shows commit history.
+Output:
+- Shows two commits:
+  a) Added new feature in feature-branch
+  b) Initial commit with two files
+
+19. git log --oneline --graph --all
+Explanation: Displays compact commit history with a graph.
+Output:
+* Added new feature in feature-branch
+* Initial commit with two files

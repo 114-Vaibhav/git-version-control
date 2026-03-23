@@ -1,0 +1,155 @@
+1.
+echo "made new changes" >>important.txt
+Explanation: Adds text to the `important.txt` file.
+
+2.
+git status
+Output:
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   important.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Explanation:
+We can see tracked changes.
+
+3.
+git restore important.txt
+Explanation: Restores the previous version of the file ("made new changes" is removed).
+
+4.
+git status
+Output:
+On branch main
+nothing to commit, working tree clean
+
+Explanation:
+Clearly, we can see that there is now nothing to commit.
+
+5.
+echo "made new changes" >>important.txt
+
+6.
+git status
+Output:
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   important.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+7.
+git add important.txt
+Explanation:
+Staged file important.txt, now it is ready to commit.
+
+8.
+git status
+Output:
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   important.txt
+
+Explanation: Here we can see that the file is ready to commit.
+
+9.
+git restore --staged important.txt
+Explanation:
+The `important.txt` file is unstaged.
+
+10.
+git status
+Output:
+On branch main
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   important.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+11.
+git add .
+
+12.
+git commit -m "bugged commit"
+Output:
+[main b1fa144] bugged commit
+ 1 file changed, 1 insertion(+)
+Explanation: Creates a commit with buggy code that needs to be reverted.
+
+13.
+git revert HEAD
+Output:
+[main 420da1e] Revert "bugged commit"
+ 1 file changed, 1 deletion(-)
+Explanation: Reverts the commit to remove the bug.
+
+14.
+git log
+Output:
+commit 420da1eb6453d4e732a560c7046d56264767647f (HEAD -> main)
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:52:41 2026 +0530
+
+    Revert "bugged commit"
+
+    This reverts commit b1fa144cdd85b1e69c8980ed04b02d0a16096c1d.
+
+commit b1fa144cdd85b1e69c8980ed04b02d0a16096c1d
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:52:31 2026 +0530
+
+    bugged commit
+
+commit ccd0c09dec1c7964eaaa5a56e0c747b6f21b5cd1
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:43:43 2026 +0530
+
+    Added gitignore file
+
+    adfsdafjsad
+
+commit 2dfbdb720ee367fe989d0fd8ea7ab42f5d242d5b (feature-branch)
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:04:12 2026 +0530
+
+    Added new feature in feature-branch
+
+commit 4c8614ef86bb3f8542b817aecd977fcc5dffd2e8
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:00:54 2026 +0530
+
+    Initial commit with two files
+(END)
+Date:   Mon Mar 23 16:52:31 2026 +0530
+
+    bugged commit
+
+commit ccd0c09dec1c7964eaaa5a56e0c747b6f21b5cd1
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:43:43 2026 +0530
+
+    Added gitignore file
+
+    adfsdafjsad
+
+commit 2dfbdb720ee367fe989d0fd8ea7ab42f5d242d5b (feature-branch)
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:04:12 2026 +0530
+
+    Added new feature in feature-branch
+
+commit 4c8614ef86bb3f8542b817aecd977fcc5dffd2e8
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:00:54 2026 +0530
+
+    Initial commit with two files
+
+Explanation: Shows all commits with their timestamps.
