@@ -1,0 +1,33 @@
+[33mcommit 420da1eb6453d4e732a560c7046d56264767647f[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:52:41 2026 +0530
+
+    Revert "bugged commit"
+    
+    This reverts commit b1fa144cdd85b1e69c8980ed04b02d0a16096c1d.
+
+[33mcommit b1fa144cdd85b1e69c8980ed04b02d0a16096c1d[m
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:52:31 2026 +0530
+
+    bugged commit
+
+[33mcommit ccd0c09dec1c7964eaaa5a56e0c747b6f21b5cd1[m
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 16:43:43 2026 +0530
+
+    Added gitignore file
+    
+    adfsdafjsad
+
+[33mcommit 2dfbdb720ee367fe989d0fd8ea7ab42f5d242d5b[m[33m ([m[1;32mfeature-branch[m[33m)[m
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:04:12 2026 +0530
+
+    Added new feature in feature-branch
+
+[33mcommit 4c8614ef86bb3f8542b817aecd977fcc5dffd2e8[m
+Author: VAIBHAV GUPTA <146114384+114-Vaibhav@users.noreply.github.com>
+Date:   Mon Mar 23 15:00:54 2026 +0530
+
+    Initial commit with two files
