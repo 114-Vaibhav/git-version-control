@@ -14,7 +14,7 @@ Topics included:
 - Git hooks
 - Remote repositories and collaboration
 - Forced push and recovery workflow
-  Task 9 Repo:
+- Task 9 Repo:
   https://github.com/114-Vaibhav/git-collab-demo
-  Task 10 Repo:
+- Task 10 Repo:
   https://github.com/114-Vaibhav/task-10-repo
