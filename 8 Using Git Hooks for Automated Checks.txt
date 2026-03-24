@@ -1,0 +1,118 @@
+1.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ cd .git/hooks
+Explanation: Moved to hooks folder
+
+2.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control/.git/hooks (GIT_DIR!)
+$ ls
+Output:
+applypatch-msg.sample*      pre-push.sample*
+commit-msg.sample*          pre-rebase.sample*
+fsmonitor-watchman.sample*  pre-receive.sample*
+post-update.sample*         prepare-commit-msg.sample*
+pre-applypatch.sample*      push-to-checkout.sample*
+pre-commit.sample*          sendemail-validate.sample*
+pre-merge-commit.sample*    update.sample*
+Explanation: Shows all hook files
+
+3.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control/.git/hooks (GIT_DIR!)
+$ touch pre-commit
+Explanation: Created pre-commit hook file
+`
+#!/bin/sh
+
+echo "Running pre-commit checks..."
+
+# Example: check for word "error" in files
+if grep -r "error" . --exclude-dir=.git; then
+
+  echo "âŒ Commit blocked: 'error' found in code"
+  exit 1
+fi
+
+echo "âœ… All checks passed"
+exit 0
+
+`
+4.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control/.git/hooks (GIT_DIR!)
+$ chmod +x pre-commit
+Explanation: Made hook executable
+
+5.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control/.git/hooks (GIT_DIR!)
+$ ls
+Output:
+applypatch-msg.sample*      pre-push.sample*
+commit-msg.sample*          pre-rebase.sample*
+fsmonitor-watchman.sample*  pre-receive.sample*
+post-update.sample*         prepare-commit-msg.sample*
+pre-applypatch.sample*      push-to-checkout.sample*
+pre-commit                  sendemail-validate.sample*
+pre-commit.sample*          update.sample*
+pre-merge-commit.sample*
+Explanation: Shows new pre-commit hook
+
+6.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control/.git/hooks (GIT_DIR!)
+$ cd ../..
+Explanation: Returned to root folder
+
+7.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ echo "this has error" >> test.txt
+Explanation: Added file with error
+
+8.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git add .
+Explanation: Staged file for commit
+
+9.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git commit -m "test commit"
+Output:
+Running pre-commit checks...
+./.git/hooks/fsmonitor-watchman.sample: my $error = $output->{error};
+./.git/hooks/fsmonitor-watchman.sample: if ($retry > 0 and $error and $error =~ m/unable to resolve root .* directory (.*) is not watched/) {
+./.git/hooks/fsmonitor-watchman.sample:         $error = $output->{error};
+./.git/hooks/fsmonitor-watchman.sample:         die "Watchman: $error.\n" .
+./.git/hooks/fsmonitor-watchman.sample:         "Falling back to scanning...\n" if $error;
+./.git/hooks/fsmonitor-watchman.sample:         $error = $output->{error};
+./.git/hooks/fsmonitor-watchman.sample:         die "Watchman: $error.\n" .
+./.git/hooks/fsmonitor-watchman.sample:         "Falling back to scanning...\n" if $error;
+./.git/hooks/fsmonitor-watchman.sample: die "Watchman: $error.\n" .
+./.git/hooks/fsmonitor-watchman.sample: "Falling back to scanning...\n" if $error;
+./.git/hooks/pre-commit:# Example: check for word "error" in files
+./.git/hooks/pre-commit:if grep -r "error" .; then
+./.git/hooks/pre-commit:  echo "âŒ Commit blocked: 'error' found in code"
+./.git/hooks/pre-commit.sample:# If there are whitespace errors, print the offending file names and fail.
+./.git/hooks/sendemail-validate.sample: echo "sendemail-validate: error: failed to prepare worktree" >&2
+./test.txt:this has error
+âŒ Commit blocked: 'error' found in code
+
+Explanation: Commit blocked by hook
+
+10.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ echo "clean code" > test.txt
+Explanation: Removed error from file
+
+11.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git add .
+Explanation: Staged file for commit
+
+12.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git commit -m "clean commit"
+Output:
+Running pre-commit checks...
+âœ… All checks passed
+[main dbb9033] clean commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 test.txt
+
+Explanation: Commit passed all checks

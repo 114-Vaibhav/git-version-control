@@ -1,0 +1,134 @@
+1.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git checkout feature-login
+Output:
+Switched to branch 'feature-login'
+Explanation: Switched to feature-login branch
+
+2.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ echo "Work in middle way" > imp.txt
+Explanation: Created file imp.txt
+
+3.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git add .
+Explanation: Staged file for commit
+
+4.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git commit "added imp.txt"
+Explanation: Tried to commit file
+
+5.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ echo "Work in middle way again" > imp.txt
+Explanation: Changed imp.txt content
+
+6.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git status
+Output:
+On branch feature-login
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   imp.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   imp.txt
+Explanation: Shows staged and unstaged changes
+
+7.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git stash
+Output:
+Saved working directory and index state WIP on feature-login: 0f2e19e added validation
+Explanation: Saved work without committing
+
+8.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git status
+Output:
+On branch feature-login
+nothing to commit, working tree clean
+Explanation: Working tree is clean
+
+9.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-login)
+$ git checkout main
+Output:
+Switched to branch 'main'
+Explanation: Switched to main branch
+
+10.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ echo "changes in imp2" > imp2.txt
+Explanation: Created file imp2.txt
+
+11.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git add .
+Explanation: Staged file for commit
+
+12.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git commit -m "added new file imp2"
+Output:
+[main ddb4e19] added new file imp2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 imp2.txt
+Explanation: Saved new file commit
+
+13.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git checkout feature-branch
+Output:
+Switched to branch 'feature-branch'
+Explanation: Switched to feature-branch
+
+14.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-branch)
+$ git status
+Output:
+On branch feature-branch
+nothing to commit, working tree clean
+Explanation: Working tree is clean
+
+15.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-branch)
+$ git stash pop
+Output:
+On branch feature-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   imp.txt
+
+Dropped refs/stash@{0} (307f4fe2bf232810060faba5ab43573fa392af90)
+Explanation: Restored stashed work
+
+16.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-branch)
+$ git status
+Output:
+On branch feature-branch
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   imp.txt
+Explanation: Shows restored pending changes
+
+17.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-branch)
+$ git stash
+Output:
+Saved working directory and index state WIP on feature-branch: 2dfbdb7 Added new feature in feature-branch
+Explanation: Saved current work again
+
+18.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-branch)
+$ git stash list
+Output:
+stash@{0}: WIP on feature-branch: 2dfbdb7 Added new feature in feature-branch
+stash@{1}: WIP on main: 308da93 Last 3 commmit messages combined, added few lines in file
+Explanation: Shows all saved stashes

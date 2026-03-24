@@ -1,0 +1,58 @@
+1. git init
+Creates a new Git repository.
+
+2. git remote add origin https://github.com/114-Vaibhav/git-collab-demo.git
+Connects local repo to GitHub.
+(https://github.com/114-Vaibhav/git-collab-demo)
+
+3. echo "created demo file" > demo.txt
+Creates a new tracked file.
+
+4. git add .
+Stages all current files.
+
+5. git commit -m "Initial commit"
+Saves staged files as commit.
+
+6. git pull origin main --rebase
+Gets remote changes safely.
+
+7. git push -u origin main
+Pushes commits and sets upstream.
+
+8. git checkout -b feature-login
+Creates and switches branch.
+
+9. echo "login feature" > login.txt
+Creates file for feature.
+
+10. git add .
+Stages the feature changes.
+
+11. git commit -m "Add login feature"
+Saves the feature changes.
+
+12. git push origin feature-login
+Pushes feature branch to GitHub.
+
+13. Create Pull Request (on GitHub)
+Requests merge into main.
+
+14. Code Review (on GitHub)
+Checks code before merging.
+
+15. Merge Pull Request (on GitHub)
+Merges feature into main.
+
+16. git checkout main
+Switches back to main.
+
+17. git pull origin main
+Updates local main branch.
+
+18. git branch -d feature-login
+Deletes local feature branch.
+
+19. git push origin --delete feature-login
+Deletes remote feature branch.
+

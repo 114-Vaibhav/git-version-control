@@ -1,0 +1,212 @@
+1.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git init
+Output:
+Initialized empty Git repository in E:/Intern Work/Git Version Control/git version control/task 10 demo/.git/
+Explanation: Created new Git repository
+
+2.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ echo "Base Project" > app.txt
+Explanation: Created file app.txt
+
+3.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git add .
+Explanation: Staged file for commit
+
+4.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git commit -m "Initial Commit"
+Output:
+[main (root-commit) 08f6015] Initial Commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 app.txt
+Explanation: Saved first commit
+
+5.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git checkout -b feature-login
+Output:
+Switched to a new branch 'feature-login'
+Explanation: Created feature-login branch
+
+6.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (feature-login)
+$ echo "Login feature v1" >> app.txt
+Explanation: Updated app.txt content
+
+7.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (feature-login)
+$ git add .
+Explanation: Staged file for commit
+
+8.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (feature-login)
+$ git commit -m "Add login v1"
+Output:
+[feature-login b5f5ddc] Add login v1
+ 1 file changed, 1 insertion(+)
+Explanation: Saved login feature commit
+
+9.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (feature-login)
+$ git checkout main
+Output:
+Switched to branch 'main'
+Explanation: Switched to main branch
+
+10.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git checkout -b bugfix-auth
+Switched to a new branch 'bugfix-auth'
+Explanation: Created bugfix-auth branch
+
+11.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (bugfix-auth)
+$ echo "Fix auth bug" >> app.txt
+Explanation: Added bug fix line
+
+12.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (bugfix-auth)
+$ git add .
+Explanation: Staged file for commit
+
+13.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (bugfix-auth)
+$ git commit -m "Fix authentication bug"
+[bugfix-auth 1f8d62c] Fix authentication bug
+ 1 file changed, 1 insertion(+)
+Explanation: Saved bug fix commit
+
+14.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (bugfix-auth)
+$ git checkout main
+Switched to branch 'main'
+Explanation: Switched to main branch
+
+15.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (main)
+$ git checkout -b release-v1
+Switched to a new branch 'release-v1'
+Explanation: Created release-v1 branch
+
+16.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git checkout release-v1
+Already on 'release-v1'
+Explanation: Already on release-v1
+
+17.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git merge feature-login
+Output:
+Updating 08f6015..b5f5ddc
+Fast-forward
+ app.txt | 1 +
+ 1 file changed, 1 insertion(+)
+Explanation: Merged feature-login branch
+
+18.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git merge bugfix-auth
+Output:
+Auto-merging app.txt
+CONFLICT (content): Merge conflict in app.txt
+Automatic merge failed; fix conflicts and then commit the result.
+Explanation: Merge conflict happened here
+
+19.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1|MERGING)
+$ git add app.txt
+Explanation: Staged resolved file
+
+20.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1|MERGING)
+$ git commit -m "Resolved merge conflict between feature and bugfix"
+Output:
+[release-v1 05032e2] Resolved merge conflict between feature and bugfix
+Explanation: Saved conflict resolution
+
+21.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git log --oneline
+05032e2 (HEAD -> release-v1) Resolved merge conflict between feature and bugfix
+1f8d62c (bugfix-auth) Fix authentication bug
+b5f5ddc (feature-login) Add login v1
+08f6015 (main) Initial Commit
+Explanation: Shows current commit history
+
+22.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git rebase -i HEAD~2
+Output:
+Auto-merging app.txt
+CONFLICT (content): Merge conflict in app.txt
+error: could not apply 1f8d62c... Fix authentication bug
+hint: Resolve all conflicts manually, mark them as resolved with
+hint: "git add/rm <conflicted_files>", then run "git rebase --continue".
+hint: You can instead skip this commit: run "git rebase --skip".
+hint: To abort and get back to the state before "git rebase", run "git rebase --abort".
+Could not apply 1f8d62c... Fix authentication bug
+Explanation: Rebase conflict happened here
+
+23.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1|REBASE 2/2)
+$ git add app.txt
+Explanation: Staged resolved file
+
+24.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1|REBASE 2/2)
+$ git rebase --continue
+Output:
+[detached HEAD 43301d5] Add login v1 and Fix authentication bug Merged
+ Date: Tue Mar 24 12:36:17 2026 +0530
+ 1 file changed, 3 insertions(+)
+Successfully rebased and updated refs/heads/release-v1.
+Explanation: Rebase finished successfully
+
+25.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git remote add origin https://github.com/114-Vaibhav/task-10-repo.git
+Explanation: Added remote repository link
+
+26.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git push origin release-v1 --force
+Output:
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (6/6), 517 bytes | 517.00 KiB/s, done.
+Total 6 (delta 1), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (1/1), done.
+To https://github.com/114-Vaibhav/task-10-repo.git
+ * [new branch]      release-v1 -> release-v1
+Explanation: Force pushed release-v1 branch
+
+27.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git reset --hard HEAD~1
+HEAD is now at 08f6015 Initial Commit
+Explanation: Moved back one commit
+
+28.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git log --oneline
+08f6015 (HEAD -> release-v1, main) Initial Commit
+Explanation: Shows reset commit history
+
+29.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git reset --hard 43301d5
+HEAD is now at 43301d5 Add login v1 and Fix authentication bug Merged
+Explanation: Restored previous commit state
+
+30.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/task 10 demo (release-v1)
+$ git log --oneline
+43301d5 (HEAD -> release-v1, origin/release-v1) Add login v1 and Fix authentication bug Merged
+08f6015 (main) Initial Commit
+Explanation: Shows recovered commit history

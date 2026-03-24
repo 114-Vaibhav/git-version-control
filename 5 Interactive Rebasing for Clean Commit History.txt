@@ -1,0 +1,90 @@
+1.
+echo "Line 1" > rebase.txt
+Explanation: Created file rebase.txt
+
+2.
+git add .
+Explanation: Staged file for commit
+
+3.
+git commit -m "Initial Commit"
+Output:
+[main 6c7b81d] Initial Commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 rebase.txt
+Explanation: Saved first commit
+
+4.
+echo "Line 2" > rebase.txt
+Explanation: Changed file content
+
+5.
+git add .
+Explanation: Staged file for commit
+
+6.
+git commit -m "added new line"
+Output:
+[main ace5929] added new line
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: Saved updated file
+
+7.
+echo "Line 3" > rebase.txt
+Explanation: Changed file content again
+
+8.
+git add .
+Explanation: Staged file for commit
+
+9.
+git commit -m "added new line 3"
+[main e119960] added new line 3
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: Saved third change
+
+10.
+echo "Line 4" > rebase.txt
+Explanation: Changed file content again
+
+11.
+git add .
+Explanation: Staged file for commit
+
+12.
+git commit -m "added new line 4"
+Output:
+[main e87357d] added new line 4
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Explanation: Saved fourth change
+
+13.
+git log --oneline
+Output:
+e87357d (HEAD -> main) added new line 4
+e119960 added new line 3
+ace5929 added new line
+6c7b81d Initial Commit
+
+Explanation: Shows all current commits
+
+
+14.
+git rebase -i HEAD~4
+Output:
+[detached HEAD 14bd632] added new line changed
+ Date: Tue Mar 24 10:12:12 2026 +0530
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+[detached HEAD 308da93] Last 3 commmit messages combined, added few lines in file
+ Date: Tue Mar 24 10:12:12 2026 +0530
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Successfully rebased and updated refs/heads/main.
+
+Explanation: Combined commits into one
+
+15.
+git log --oneline
+Output:
+308da93 (HEAD -> main) Last 3 commmit messages combined, added few lines in file
+6c7b81d Initial Commit
+Explanation: Shows cleaned commit history

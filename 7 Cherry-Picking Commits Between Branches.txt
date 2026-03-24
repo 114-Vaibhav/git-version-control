@@ -1,0 +1,114 @@
+1.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git checkout -b feature-A
+Output:
+Switched to a new branch 'feature-A'
+Explanation: Created and switched branch
+
+2.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ echo "feature A file "> fileA.txt
+Explanation: Created file fileA.txt
+
+3.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git add .
+Explanation: Staged file for commit
+
+4.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git commit -m "add feature A file"
+Output:
+[feature-A 2f84438] add feature A file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fileA.txt
+Explanation: Saved feature A file
+
+5.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ echo "imp bug fix ">> fileA.txt
+Explanation: Added line to fileA
+
+6.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git add .
+Explanation: Staged file for commit
+
+7.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git commit -m "fix bug"
+Ouput:
+[feature-A c7d45bc] fix bug
+ 1 file changed, 1 insertion(+)
+Explanation: Saved bug fix commit
+
+8.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git checkout main
+Output:
+Switched to branch 'main'
+Explanation: Switched to main branch
+
+9.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (main)
+$ git checkout -b feature-B
+Switched to a new branch 'feature-B'
+Explanation: Created and switched branch
+
+10.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ echo "feature B work "> fileB.txt
+Explanation: Created file fileB.txt
+
+11.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ git add .
+Explanation: Staged file for commit
+
+12.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ git commit -m "add feature B"
+Output:
+[feature-B d9c7dc0] add feature B
+ 1 file changed, 1 insertion(+)
+ create mode 100644 fileB.txt
+Explanation: Saved feature B file
+
+13.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ git checkout feature-A
+Output:
+Switched to branch 'feature-A'
+Explanation: Switched to feature-A branch
+
+14.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git log --oneline
+Output:
+c7d45bc (HEAD -> feature-A) fix bug
+2f84438 add feature A file
+Explanation: Shows commits in feature-A
+
+15.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-A)
+$ git checkout feature-B
+Output:
+Switched to branch 'feature-B'
+Explanation: Switched to feature-B branch
+
+16.
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ git cherry-pick c7d45bc
+Output:
+[feature-B f0152d5] fix bug
+ Date: Tue Mar 24 11:06:28 2026 +0530
+ 1 file changed, 2 insertions(+)
+ create mode 100644 fileA.txt
+Explanation: Copied commit from feature-A
+
+vg940@VaibhavG MINGW64 /e/Intern Work/Git Version Control/git version control/git_version_control (feature-B)
+$ git log --oneline
+f0152d5 (HEAD -> feature-B) fix bug
+d9c7dc0 add feature B
+Explanation: Shows copied commit here
+
